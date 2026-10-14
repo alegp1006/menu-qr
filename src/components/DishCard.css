@@ -1,0 +1,123 @@
+/* Contenedor Principal de la Tarjeta */
+.dish-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden; /* Corta la imagen sobrante limpiamente */
+  background-color: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.dish-card:active {
+  transform: scale(0.98);
+}
+
+.dish-card:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* 1. Imagen de Fondo a la Izquierda */
+.dish-card-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 55%; /* Ocupa más de la mitad para dar amplitud */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.dish-card:hover .dish-card-image {
+  transform: scale(1.05); /* Efecto zoom suave al pasar el cursor */
+}
+
+/* 2. Gradiente Oscuro Transparente */
+.dish-card-gradient {
+  position: absolute;
+  inset: 0;
+  /* Funde la foto a la izquierda con el fondo negro a la derecha */
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 10, 0.2) 0%,
+    rgba(10, 10, 10, 0.85) 45%,
+    rgba(10, 10, 10, 0.98) 80%
+  );
+}
+
+/* 3. Contenedor del Texto (Título, Descripción, Precio) */
+.dish-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 16px;
+  margin-left: 40%; /* Empuja el texto a la derecha para no tapar la foto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.dish-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.dish-card-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f5f5f5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dish-card-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f59e0b; /* Dorado / Ámbar */
+  white-space: nowrap;
+}
+
+.dish-card-description {
+  margin: 6px 0 0 0;
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Corta el texto a 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Etiqueta Opcional */
+.dish-card-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #737373;
+}
+
+.dish-card-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+}
