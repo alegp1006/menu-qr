@@ -1,11 +1,30 @@
-/* Contenedor Principal de la Tarjeta */
+/* Contenedor en grilla para las tarjetas del menú */
+.dish-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .dish-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   ESTILOS DE LA TARJETA
+   ========================================================= */
 .dish-card {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  height: 140px;
+  height: 150px;
   border-radius: 16px;
-  overflow: hidden; /* Corta la imagen sobrante limpiamente */
+  overflow: hidden;
   background-color: #0a0a0a;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
@@ -33,82 +52,101 @@
   top: 0;
   bottom: 0;
   left: 0;
-  width: 55%; /* Ocupa más de la mitad para dar amplitud */
+  width: 50%;
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
 }
 
 .dish-card:hover .dish-card-image {
-  transform: scale(1.05); /* Efecto zoom suave al pasar el cursor */
+  transform: scale(1.05);
 }
 
-/* 2. Gradiente Oscuro Transparente */
+/* 2. Gradiente y efecto blur en la intersección */
 .dish-card-gradient {
   position: absolute;
   inset: 0;
-  /* Funde la foto a la izquierda con el fondo negro a la derecha */
+  /* Crea una transición suave tipo desvanecimiento oscuro desde la foto hacia el panel de texto */
   background: linear-gradient(
     to right,
-    rgba(10, 10, 10, 0.2) 0%,
-    rgba(10, 10, 10, 0.85) 45%,
-    rgba(10, 10, 10, 0.98) 80%
+    rgba(10, 10, 10, 0.1) 30%,
+    rgba(10, 10, 10, 0.7) 45%,
+    rgba(10, 10, 10, 0.96) 60%,
+    #0a0a0a 75%
   );
+  backdrop-filter: blur(
+    0.5px
+  ); /* Suaviza la transición de los píxeles de la imagen */
 }
 
-/* 3. Contenedor del Texto (Título, Descripción, Precio) */
+/* 3. Contenedor del Texto */
 .dish-card-content {
   position: relative;
   z-index: 2;
   height: 100%;
-  padding: 16px;
-  margin-left: 40%; /* Empuja el texto a la derecha para no tapar la foto */
+  padding: 14px 16px;
+  margin-left: 42%; /* Deja espacio para la imagen de la izquierda */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
 }
 
-.dish-card-header {
+.dish-card-top {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 8px;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .dish-card-title {
   margin: 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #f5f5f5;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.dish-card-price {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #f59e0b; /* Dorado / Ámbar */
-  white-space: nowrap;
+  color: #ffffff;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 
 .dish-card-description {
-  margin: 6px 0 0 0;
+  margin: 0;
   font-size: 0.75rem;
   color: #a3a3a3;
-  line-height: 1.4;
+  line-height: 1.35;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Corta el texto a 2 líneas */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-align: right;
 }
 
-/* Etiqueta Opcional */
+/* 4. Pie de tarjeta (Precio abajo y Badge) */
+.dish-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.dish-card-price {
+  font-size: 1.15rem; /* Más grande y destacado */
+  font-weight: 800;
+  color: #f59e0b; /* Ámbar */
+  letter-spacing: -0.02em;
+}
+
+.dish-card-currency {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #a3a3a3;
+  margin-left: 2px;
+  text-transform: uppercase;
+}
+
+/* Etiqueta / Badge */
 .dish-card-badge {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -116,8 +154,8 @@
 }
 
 .dish-card-badge-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background-color: #f59e0b;
 }

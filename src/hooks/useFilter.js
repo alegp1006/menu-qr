@@ -1,13 +1,12 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export function useFilter() {
-  const [searchName, setSearchName] = useState(" ");
-  const [category, setCategory] = useState("");
-  const searchNameRef = useRef();
+  const [searchName, setSearchName] = useState("");
+  const [category, setCategory] = useState("all");
 
   const handleChangeName = (e) => {
     setSearchName(e.target.value);
-    searchNameRef.current = searchName;
+    console.log(searchName);
   };
 
   const handleChangeCategory = (e) => {
@@ -15,12 +14,24 @@ export function useFilter() {
     console.log(category);
   };
 
-  const filteredMenu = (menu) => {
-    const initialMenu = [...menu];
-    if (category !== "") console.log(category + "le estado");
-    if (category === "all" || category === "") return initialMenu;
+  const filteredMenu = (menu = []) => {
+    if (!Array.isArray(menu)) return [];
 
-    return menu.filter((d) => d.category === category);
+    return menu.filter((d) => {
+      if (!d || !d.title) return false;
+
+      // 1. Filtro por categoría
+      const matchesCategory =
+        category === "all" ||
+        (d.category && d.category.toLowerCase() === category.toLowerCase());
+
+      // 2. Filtro por nombre (texto de búsqueda)
+      const query = searchName ? searchName.toLowerCase().trim() : "";
+      const matchesName = d.title.toLowerCase().includes(query);
+
+      // El plato debe cumplir ambas condiciones
+      return matchesCategory && matchesName;
+    });
   };
 
   return {
