@@ -1,0 +1,157 @@
+/* =========================================================
+   CONTENEDOR PRINCIPAL DEL FOOTER (Mobile First)
+   ========================================================= */
+.footer-container {
+  width: 100%;
+  background-color: #050505;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a3a3a3;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: 40px 20px 20px 20px;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+/* =========================================================
+   COLUMNA 1: MARCA Y DESCRIPCIÓN
+   ========================================================= */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.footer-tagline {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.footer-description {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #737373;
+}
+
+/* =========================================================
+   SECCIONES Y LISTAS
+   ========================================================= */
+.footer-section-title {
+  margin: 0 0 16px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+.footer-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-icon {
+  font-size: 0.9rem;
+}
+
+.footer-link {
+  color: #a3a3a3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #f59e0b;
+}
+
+/* =========================================================
+   REDES SOCIALES
+   ========================================================= */
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #d4d4d4;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-social-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #ffffff;
+}
+
+.footer-social-btn.highlight {
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+}
+
+.footer-social-btn.highlight:hover {
+  background: rgba(245, 158, 11, 0.15);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+/* =========================================================
+   COPYRIGHT Y PIE INFERIOR
+   ========================================================= */
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  font-size: 0.78rem;
+  color: #525252;
+}
