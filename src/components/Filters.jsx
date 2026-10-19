@@ -1,36 +1,61 @@
-import { useFilter } from "../hooks/useFilter";
+import { useEffect, useState } from "react";
+import "./filters.css";
 
-export function Filters() {
-  const { searchName, handleChangeName, handleChangeCategory } = useFilter();
+export function Filters({
+  searchName,
+  handleChangeName,
+  handleChangeCategory,
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Activa la clase .visible al montar el componente
+    const timer = setTimeout(() => setIsVisible(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <form>
-      <label>
-        buscar
-        <input type="text" value={searchName} onChange={handleChangeName} />
-      </label>
-      <fieldset>
-        <label>
-          todos
+    <div className={`filters-container ${isVisible ? "visible" : ""}`}>
+      <div className="filters-search-wrapper">
+        <label className="filters-label-search">
+          Buscar plato
+          <input
+            type="text"
+            value={searchName}
+            onChange={handleChangeName}
+            placeholder="Ej. Pizza, Helado..."
+            className="filters-input-text"
+          />
+        </label>
+      </div>
+
+      <fieldset className="filters-fieldset">
+        <legend className="filters-legend">Categorías</legend>
+
+        <label className="filters-radio-label">
           <input
             type="radio"
             onChange={handleChangeCategory}
             name="menu"
             id="category1"
             value="all"
+            defaultChecked
           />
+          Todos
         </label>
-        <label>
-          entrantes
+
+        <label className="filters-radio-label">
           <input
             type="radio"
             onChange={handleChangeCategory}
             name="menu"
             id="category2"
-            value="entrantes"
+            value="entradas"
           />
+          Entrantes
         </label>
-        <label>
-          principales
+
+        <label className="filters-radio-label">
           <input
             type="radio"
             onChange={handleChangeCategory}
@@ -38,9 +63,10 @@ export function Filters() {
             id="category3"
             value="principales"
           />
+          Principales
         </label>
-        <label>
-          helados
+
+        <label className="filters-radio-label">
           <input
             type="radio"
             onChange={handleChangeCategory}
@@ -48,9 +74,10 @@ export function Filters() {
             id="category4"
             value="helados"
           />
+          Helados
         </label>
-        <label>
-          bebidas
+
+        <label className="filters-radio-label">
           <input
             type="radio"
             onChange={handleChangeCategory}
@@ -58,9 +85,10 @@ export function Filters() {
             id="category5"
             value="bebidas"
           />
+          Bebidas
         </label>
-        <label>
-          pizzas
+
+        <label className="filters-radio-label">
           <input
             type="radio"
             onChange={handleChangeCategory}
@@ -68,8 +96,9 @@ export function Filters() {
             id="category6"
             value="pizzas"
           />
+          Pizzas
         </label>
       </fieldset>
-    </form>
+    </div>
   );
 }

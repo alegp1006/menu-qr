@@ -138,7 +138,7 @@ export const menuData = [
       "Pistacho puro de Sicilia, leche entera orgánica, crema fresca, azúcar de caña.",
     pairing: "Café espresso corto o licor amaretto.",
     image:
-      "https://images.unsplash.com/photo-1560008511-11c63416e52d?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1633933358116-a27b902fad35?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     isChefChoice: false,
     isVeggie: true,
     isGF: true,

@@ -1,0 +1,128 @@
+/* =========================================================
+   ESTILOS GENERALES DEL CONTENEDOR DE FILTROS
+   ========================================================= */
+.filters-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #f5f5f5;
+  background-color: #0a0a0a;
+
+  /* Animación de entrada inicial (Fade-up suave) */
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Se activa cuando el componente monta o recibe la clase .visible */
+.filters-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   BARRA DE BÚSQUEDA
+   ========================================================= */
+.filters-search-wrapper {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filters-label-search {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.filters-input-text {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: #ffffff;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.filters-input-text:focus {
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+/* =========================================================
+   FIELDSET Y RADIO BUTTONS (CATEGORÍAS)
+   ========================================================= */
+.filters-fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filters-legend {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a3a3a3;
+  padding: 0 8px;
+  font-weight: 600;
+}
+
+/* Ocultar el radio button nativo pero mantener accesibilidad */
+.filters-radio-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #d4d4d4;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.filters-radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Efecto Hover sobre los botones de categoría */
+.filters-radio-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #ffffff;
+}
+
+/* Estilo cuando el radio button está seleccionado */
+.filters-radio-label input[type="radio"]:checked + span,
+.filters-radio-label:has(input[type="radio"]:checked) {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: #f59e0b;
+  color: #f59e0b;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
