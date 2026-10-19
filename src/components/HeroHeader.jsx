@@ -1,22 +1,11 @@
 import { useEffect, useRef } from "react";
 import "./HeroHeader.css";
+import { restaurantInfo } from "../data";
 
 export function HeroHeader() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const pillsRef = useRef(null);
-
-  const restaurantInfo = {
-    name: "Sabor Raíz Bistro",
-    tagline: "Sabores Auténticos de Latinoamérica",
-    description:
-      "Una experiencia gastronómica que combina la tradición criolla con técnicas contemporáneas. Ingredientes frescos, cortes premium y coctelería de autor.",
-    schedule: "Lun - Dom: 12:00 PM - 11:00 PM",
-    location: "Av. Principal 123, Centro",
-    rating: "4.9 ★★★★★",
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
-  };
 
   useEffect(() => {
     // API Nativo del Navegador para detectar cuando los elementos entran en pantalla

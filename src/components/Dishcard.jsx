@@ -1,16 +1,7 @@
-import { menuData } from "../data";
 import "./DishCard.css";
 
-export function DishCard() {
+export function DishCard({ menuData }) {
   // Datos de ejemplo con foto de Unsplash
-  const dish = {
-    title: "Ceviche Clásico Peruano",
-    description:
-      "Pesca fresca del día marinada en leche de tigre al ají limo, acompañada de choclo tierno y camote glaseado.",
-    price: "$16.50",
-    image:
-      "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=800",
-  };
 
   return menuData.map((dish) => (
     <article className="dish-card">

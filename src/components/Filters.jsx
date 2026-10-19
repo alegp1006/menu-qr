@@ -1,0 +1,75 @@
+import { useFilter } from "../hooks/useFilter";
+
+export function Filters() {
+  const { searchName, handleChangeName, handleChangeCategory } = useFilter();
+  return (
+    <form>
+      <label>
+        buscar
+        <input type="text" value={searchName} onChange={handleChangeName} />
+      </label>
+      <fieldset>
+        <label>
+          todos
+          <input
+            type="radio"
+            onChange={handleChangeCategory}
+            name="menu"
+            id="category1"
+            value="all"
+          />
+        </label>
+        <label>
+          entrantes
+          <input
+            type="radio"
+            onChange={handleChangeCategory}
+            name="menu"
+            id="category2"
+            value="entrantes"
+          />
+        </label>
+        <label>
+          principales
+          <input
+            type="radio"
+            onChange={handleChangeCategory}
+            name="menu"
+            id="category3"
+            value="principales"
+          />
+        </label>
+        <label>
+          helados
+          <input
+            type="radio"
+            onChange={handleChangeCategory}
+            name="menu"
+            id="category4"
+            value="helados"
+          />
+        </label>
+        <label>
+          bebidas
+          <input
+            type="radio"
+            onChange={handleChangeCategory}
+            name="menu"
+            id="category5"
+            value="bebidas"
+          />
+        </label>
+        <label>
+          pizzas
+          <input
+            type="radio"
+            onChange={handleChangeCategory}
+            name="menu"
+            id="category6"
+            value="pizzas"
+          />
+        </label>
+      </fieldset>
+    </form>
+  );
+}
